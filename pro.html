@@ -4,56 +4,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dine Digital</title>
+  <meta name="description" content="GT Restaurant - Experience the finest dining in Chennai" />
+  <title>GT Restaurant</title>
   <link rel="shortcut icon" href="./images/logo1.png" type="image/x-icon" />
-  <link rel="stylesheet" type="text/css" href="pro.css" />
+  <link rel="stylesheet" href="pro.css" />
+  <link rel="stylesheet" type="text/css" href="chatbot.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
-  <div class="header">
-    <div class="logo">
-      <img src="./images/logo7.png" alt="logo" />
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="./images/logo7.png" alt="GT Restaurant Logo">
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="pro.html" class="active">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservation.html">Reservation</a></li>
+          <li><a href="gifts.html">Gifts</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="count">0</span>
+      </div>
     </div>
+  </header>
 
-    <div class="nav">
-      <ul>
-        <a href="#">
-          <li>Home</li>
-        </a><br>
-        <a href="#About">
-          <li>About</li>
-        </a><br>
-        <a href="#Menu">
-          <li>Menu</li>
-        </a>
-        <a href="#">
-          <li>Contact</li>
-        </a>
-        <a href="#">
-          <li>Book Table</li>
-        </a>
-      </ul>
+  <!-- Cart Overlay -->
+  <div class="cart-overlay">
+    <div class="cart-sidebar">
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="close">&times;</button>
+      </div>
+      <div class="cart-items">
+        <!-- Cart items will be dynamically added here -->
+      </div>
+      <div class="total">Total: ₹0</div>
+      <button class="checkout">Checkout</button>
     </div>
   </div>
-  <section class="container" id="Home">
-    <div class="content">
-      <h1>Welcome to GT!</h1>
-      <br /><br />
-      <p class="para1">
-        Great food, warm vibes, and unforgettable flavors! Come in, relax, and
-        enjoy a delicious meal made just for you.
-      </p>
-      <br />
-    </div>
-  </section>
 
-  <section class="about" id="About">
-    <div class="about" id="About">
-      <img align="right" src="./images/shadecolors/aboutpic.jpg" alt="about" />
+  <main>
+    <section class="hero" id="home">
+      <div class="content">
+        <h1>Welcome to GT Restaurant</h1>
+        <p class="para1">
+          Great food, warm vibes, and unforgettable flavors! Come in, relax, and
+          enjoy a delicious meal made just for you.
+        </p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
       <div class="about-content">
         <div class="about-items">
-          <h1>About Us</h1>
-          <br />
+          <h2>About Us</h2>
           <p>
             We are a family-owned restaurant that has been serving the community
             for over 20 years. Our goal is to provide our customers with a
@@ -62,65 +72,179 @@
             providing our customers with the best possible experience. Come in
             and see for yourself why we are the best restaurant in town!
           </p>
-
         </div>
+        <img src="./images/backgroundfoods/aboutpic.jpg" alt="Our restaurant interior" />
       </div>
-  </section>
-  <section class="menu-container" id=" Menu">
-    <div class="block" id="Menu">
-      <h1>Our Menu</h1>
-      <p>Everything is made in each restaurant,every day</p>
-      <a href="menu.html">
-        <button>View Menu</button></a>
-    </div>
+    </section>
 
-    <div  class="block" id="Book Table">
-      <h1>Reservation </h1>
-      <p>
-        Book your Table Now!
-      </p>
-      <a href="reservation.html">
-        <button>Book Table</button></a>
-    </div>
-  </section>
-  <!-- <div style="height: 25000px"></div> -->
-   <!-- <section class="developer">
-    <div class="developer-content">
-      <h1>Developed by</h1>
-      <p>Team Dine Digital</p>
-    </div>
-   </section> -->
-<section class="foot">
-  <footer>
+    <section class="menu-container">
+      <div class="block" id="menu">
+        <h2>Our Menu</h2>
+        <p>Everything is made fresh in our kitchen, every day</p>
+        <a href="menu.html" class="button">View Menu</a>
+      </div>
+
+      <div class="block" id="reservation">
+        <h2>Reservation</h2>
+        <p>Book your Table Now!</p>
+        <a href="reservation.html" class="button">Book Table</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" id="footer">
     <div class="footer-container">
-        <div class="footer-section about1">
-            <h2>About Us</h2>
-            <p>Experience the best flavors with our delicious cuisines made from the freshest ingredients.</p>
-        </div>
-        <div class="footer-section contact">
-            <h2>Contact Us</h2>
-            <p>📍 123 Food Street, Chennai, India</p>
-            <p>📞 +91 98765 43210</p>
-            <p>✉ info@gtrestaurant.com</p>
-        </div>
-        <div class="footer-section hours">
-            <h2>Opening Hours</h2>
-            <p>Monday - Friday: 10AM - 10PM</p>
-            <p>Saturday - Sunday: 12PM - 11PM</p>
-        </div>
-        <div class="footer-section newsletter">
-            <h2>Newsletter</h2>
-            <input type="email" placeholder="Enter your email">
-            <button>Subscribe</button>
-        </div>
+      <div class="footer-section about1">
+        <h2>About Us</h2>
+        <p>Experience the best flavors with our delicious cuisines made from the freshest ingredients.</p>
+      </div>
+      <div class="footer-section contact">
+        <h2>Contact Us</h2>
+        <address>
+          <p>📍 123 Food Street, Chennai, India</p>
+          <p>📞 <a href="tel:+919876543210">+91 98765 43210</a></p>
+          <p>✉ <a href="mailto:info@gtrestaurant.com">info@gtrestaurant.com</a></p>
+        </address>
+      </div>
+      <div class="footer-section hours">
+        <h2>Opening Hours</h2>
+        <p>Monday - Friday: 10AM - 10PM</p>
+        <p>Saturday - Sunday: 12PM - 11PM</p>
+      </div>
+      <div class="footer-section newsletter">
+        <h2>Newsletter</h2>
+        <form action="#" method="post">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2025 GT Restaurant | All Rights Reserved</p>
+      <p>&copy; 2025 GT Restaurant | All Rights Reserved</p>
     </div>
-</footer>
-</section>
+  </footer>
 
+  <!-- Chatbot Container -->
+  <div class="chatbot-container">
+      <div class="chatbot-header">
+          <h3>GT Restaurant Assistant</h3>
+          <button class="close-chat">×</button>
+      </div>
+      <div class="chatbot-messages" id="chatMessages">
+          <div class="message bot">
+              <div class="message-content">
+                  Hello! I'm your GT Restaurant assistant. How can I help you today?
+              </div>
+          </div>
+      </div>
+      <div class="chatbot-input">
+          <input type="text" id="userInput" placeholder="Type your message...">
+          <button class="send-message">Send</button>
+      </div>
+  </div>
 
+  <!-- Chatbot Toggle Button -->
+  <button class="chatbot-toggle">
+      <span class="chat-icon">💬</span>
+      <span class="chat-label">Chat with us</span>
+  </button>
+
+  <script>
+      // Chatbot functionality
+      const chatbotContainer = document.querySelector('.chatbot-container');
+      const chatbotToggle = document.querySelector('.chatbot-toggle');
+      const closeChat = document.querySelector('.close-chat');
+      const chatMessages = document.getElementById('chatMessages');
+      const userInput = document.getElementById('userInput');
+      const sendMessage = document.querySelector('.send-message');
+
+      // Chatbot responses
+      const responses = {
+          greeting: ["Hello!", "Hi there!", "Welcome to GT Restaurant!"],
+          menu: ["You can view our menu at menu.html. We offer starters, main course, desserts, and beverages.", 
+                 "Check out our menu page for all available dishes and prices."],
+          reservation: ["You can make a reservation through our reservation page or I can help you book a table.",
+                       "To book a table, visit our reservation page or I can guide you through the process."],
+          hours: ["We're open Monday-Friday: 10AM-10PM and Saturday-Sunday: 12PM-11PM.",
+                  "Our opening hours are: Weekdays 10AM-10PM, Weekends 12PM-11PM."],
+          location: ["We're located at 123 Food Street, Chennai, India.",
+                    "You can find us at 123 Food Street, Chennai, India."],
+          contact: ["You can reach us at +91 98765 43210 or email us at info@gtrestaurant.com",
+                   "Contact us: Phone: +91 98765 43210, Email: info@gtrestaurant.com"],
+          default: ["I'm not sure about that. Could you please rephrase your question?",
+                   "I don't understand. Could you try asking in a different way?"]
+      };
+
+      // Keywords for responses
+      const keywords = {
+          greeting: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
+          menu: ['menu', 'food', 'dishes', 'prices', 'what do you serve'],
+          reservation: ['book', 'reserve', 'reservation', 'table', 'booking'],
+          hours: ['hours', 'open', 'closing', 'when are you open'],
+          location: ['where', 'location', 'address', 'directions'],
+          contact: ['contact', 'phone', 'email', 'reach', 'call']
+      };
+
+      // Toggle chatbot
+      chatbotToggle.addEventListener('click', () => {
+          chatbotContainer.classList.add('active');
+      });
+
+      closeChat.addEventListener('click', () => {
+          chatbotContainer.classList.remove('active');
+      });
+
+      // Send message function
+      function sendUserMessage() {
+          const message = userInput.value.trim();
+          if (message) {
+              // Add user message to chat
+              addMessage(message, 'user');
+              userInput.value = '';
+
+              // Get and add bot response
+              const response = getBotResponse(message);
+              setTimeout(() => addMessage(response, 'bot'), 500);
+          }
+      }
+
+      // Add message to chat
+      function addMessage(message, sender) {
+          const messageDiv = document.createElement('div');
+          messageDiv.className = `message ${sender}`;
+          messageDiv.innerHTML = `
+              <div class="message-content">
+                  ${message}
+              </div>
+          `;
+          chatMessages.appendChild(messageDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      // Get bot response based on user message
+      function getBotResponse(message) {
+          message = message.toLowerCase();
+          
+          // Check for keywords
+          for (const [category, words] of Object.entries(keywords)) {
+              if (words.some(word => message.includes(word))) {
+                  const responsesList = responses[category];
+                  return responsesList[Math.floor(Math.random() * responsesList.length)];
+              }
+          }
+
+          // Default response if no keywords found
+          return responses.default[Math.floor(Math.random() * responses.default.length)];
+      }
+
+      // Event listeners
+      sendMessage.addEventListener('click', sendUserMessage);
+      userInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+              sendUserMessage();
+          }
+      });
+  </script>
 </body>
 
 </html>

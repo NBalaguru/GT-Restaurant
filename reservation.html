@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GT Restaurant - Make a reservation for fine dining experience">
+    <title>Reservation - GT Restaurant</title>
+    <link rel="shortcut icon" href="./images/logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="pro.css">
+    <link rel="stylesheet" href="reservation.css">
+    <link rel="stylesheet" type="text/css" href="chatbot.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="./images/logo7.png" alt="GT Restaurant Logo">
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="pro.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="reservation.html" class="active">Reservation</a></li>
+                    <li><a href="gifts.html">Gifts</a></li>
+                    <li><a href="pro.html#footer">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay">
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close">&times;</button>
+            </div>
+            <div class="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="total">Total: ₹0</div>
+            <button class="checkout">Checkout</button>
+        </div>
+    </div>
+
+    <main class="reservation-page">
+        <section class="reservation-hero">
+            <h1>Make a Reservation</h1>
+            <p>Book your table for an unforgettable dining experience</p>
+        </section>
+
+        <section class="reservation-container">
+            <form id="reservationForm" class="reservation-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Select number of guests</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5 People</option>
+                        <option value="6">6 People</option>
+                        <option value="7">7 People</option>
+                        <option value="8">8 People</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specialRequests">Special Requests</label>
+                    <textarea id="specialRequests" name="specialRequests" rows="4"></textarea>
+                </div>
+
+                <div class="table-selection">
+                    <h3>Select Your Table</h3>
+                    <div class="tables-grid">
+                        <div class="table" data-table="1" data-capacity="2">
+                            <span>Table 1</span>
+                            <span>2 Seats</span>
+                        </div>
+                        <div class="table" data-table="2" data-capacity="4">
+                            <span>Table 2</span>
+                            <span>4 Seats</span>
+                        </div>
+                        <div class="table" data-table="3" data-capacity="6">
+                            <span>Table 3</span>
+                            <span>6 Seats</span>
+                        </div>
+                        <div class="table" data-table="4" data-capacity="8">
+                            <span>Table 4</span>
+                            <span>8 Seats</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="selectedTable" name="selectedTable">
+                </div>
+
+                <button type="submit" class="submit-btn">Make Reservation</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Receipt Modal -->
+    <div class="receipt-modal" id="receiptModal">
+        <div class="receipt-content">
+            <div class="receipt-header">
+                <h2>Reservation Confirmation</h2>
+                <button class="close-receipt">&times;</button>
+            </div>
+            <div class="receipt-body" id="receiptBody">
+                <!-- Receipt content will be generated here -->
+            </div>
+            <div class="receipt-footer">
+                <button class="print-receipt">Print Receipt</button>
+                <button class="close-receipt">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="foot">
+        <div class="footer-container">
+            <div class="footer-section about1">
+                <h2>About Us</h2>
+                <p>Experience the best flavors with our delicious cuisines made from the freshest ingredients.</p>
+            </div>
+            <div class="footer-section contact">
+                <h2>Contact Us</h2>
+                <address>
+                    <p>📍 123 Food Street, Chennai, India</p>
+                    <p>📞 <a href="tel:+919876543210">+91 98765 43210</a></p>
+                    <p>✉ <a href="mailto:info@gtrestaurant.com">info@gtrestaurant.com</a></p>
+                </address>
+            </div>
+            <div class="footer-section hours">
+                <h2>Opening Hours</h2>
+                <p>Monday - Friday: 10AM - 10PM</p>
+                <p>Saturday - Sunday: 12PM - 11PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GT Restaurant | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Table selection functionality
+        const tables = document.querySelectorAll('.table');
+        const selectedTableInput = document.getElementById('selectedTable');
+        const guestsSelect = document.getElementById('guests');
+
+        tables.forEach(table => {
+            table.addEventListener('click', () => {
+                // Remove selected class from all tables
+                tables.forEach(t => t.classList.remove('selected'));
+                
+                // Add selected class to clicked table
+                table.classList.add('selected');
+                
+                // Update hidden input with selected table number
+                selectedTableInput.value = table.dataset.table;
+            });
+        });
+
+        // Update table availability based on number of guests
+        guestsSelect.addEventListener('change', () => {
+            const guests = parseInt(guestsSelect.value);
+            tables.forEach(table => {
+                const capacity = parseInt(table.dataset.capacity);
+                if (guests > capacity) {
+                    table.classList.add('unavailable');
+                    table.classList.remove('selected');
+                } else {
+                    table.classList.remove('unavailable');
+                }
+            });
+        });
+
+        // Form submission and receipt generation
+        const reservationForm = document.getElementById('reservationForm');
+        const receiptModal = document.getElementById('receiptModal');
+        const receiptBody = document.getElementById('receiptBody');
+        const closeReceiptButtons = document.querySelectorAll('.close-receipt');
+        const printReceiptButton = document.querySelector('.print-receipt');
+
+        reservationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const formData = new FormData(reservationForm);
+            const reservationDetails = Object.fromEntries(formData.entries());
+            
+            // Generate receipt content
+            const receiptContent = `
+                <div class="receipt-details">
+                    <h3>Reservation Details</h3>
+                    <p><strong>Name:</strong> ${reservationDetails.name}</p>
+                    <p><strong>Email:</strong> ${reservationDetails.email}</p>
+                    <p><strong>Phone:</strong> ${reservationDetails.phone}</p>
+                    <p><strong>Date:</strong> ${reservationDetails.date}</p>
+                    <p><strong>Time:</strong> ${reservationDetails.time}</p>
+                    <p><strong>Number of Guests:</strong> ${reservationDetails.guests}</p>
+                    <p><strong>Table Number:</strong> ${reservationDetails.selectedTable}</p>
+                    ${reservationDetails.specialRequests ? `<p><strong>Special Requests:</strong> ${reservationDetails.specialRequests}</p>` : ''}
+                    <p class="receipt-note">Please arrive 10 minutes before your reservation time. We look forward to serving you!</p>
+                </div>
+            `;
+            
+            // Update receipt content
+            receiptBody.innerHTML = receiptContent;
+            
+            // Show receipt modal
+            receiptModal.style.display = 'block';
+        });
+
+        // Close receipt modal
+        closeReceiptButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                receiptModal.style.display = 'none';
+            });
+        });
+
+        // Print receipt
+        printReceiptButton.addEventListener('click', () => {
+            window.print();
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === receiptModal) {
+                receiptModal.style.display = 'none';
+            }
+        });
+
+        // Chatbot functionality
+        const chatbotContainer = document.querySelector('.chatbot-container');
+        const chatbotToggle = document.querySelector('.chatbot-toggle');
+        const closeChat = document.querySelector('.close-chat');
+        const chatMessages = document.getElementById('chatMessages');
+        const userInput = document.getElementById('userInput');
+        const sendMessage = document.querySelector('.send-message');
+
+        // Chatbot responses
+        const responses = {
+            greeting: ["Hello!", "Hi there!", "Welcome to GT Restaurant!"],
+            menu: ["You can view our menu at menu.html. We offer starters, main course, desserts, and beverages.", 
+                   "Check out our menu page for all available dishes and prices."],
+            reservation: ["You can make a reservation through our reservation page or I can help you book a table.",
+                         "To book a table, visit our reservation page or I can guide you through the process."],
+            gifts: ["We offer various gift cards and packages. You can check them out on our gifts page.",
+                   "Visit our gifts page to see our special packages and gift cards."],
+            hours: ["We're open Monday-Friday: 10AM-10PM and Saturday-Sunday: 12PM-11PM.",
+                   "Our opening hours are: Weekdays 10AM-10PM, Weekends 12PM-11PM."],
+            location: ["We're located at 123 Food Street, Chennai, India.",
+                      "You can find us at 123 Food Street, Chennai, India."],
+            contact: ["You can reach us at +91 98765 43210 or email us at info@gtrestaurant.com",
+                     "Contact us: Phone: +91 98765 43210, Email: info@gtrestaurant.com"],
+            default: ["I'm not sure about that. Could you please rephrase your question?",
+                     "I don't understand. Could you try asking in a different way?"]
+        };
+
+        // Keywords for responses
+        const keywords = {
+            greeting: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
+            menu: ['menu', 'food', 'dishes', 'prices', 'what do you serve'],
+            reservation: ['book', 'reserve', 'reservation', 'table', 'booking'],
+            gifts: ['gift', 'gifts', 'gift card', 'package', 'present'],
+            hours: ['hours', 'open', 'closing', 'when are you open'],
+            location: ['where', 'location', 'address', 'directions'],
+            contact: ['contact', 'phone', 'email', 'reach', 'call']
+        };
+
+        // Toggle chatbot visibility
+        function toggleChatbot() {
+            chatbotContainer.classList.toggle('active');
+        }
+
+        // Add message to chat
+        function addMessage(message, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    ${message}
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Get bot response based on user message
+        function getBotResponse(message) {
+            message = message.toLowerCase();
+            
+            // Check for keywords
+            for (const [category, words] of Object.entries(keywords)) {
+                if (words.some(word => message.includes(word))) {
+                    const responsesList = responses[category];
+                    return responsesList[Math.floor(Math.random() * responsesList.length)];
+                }
+            }
+
+            // Default response if no keywords found
+            return responses.default[Math.floor(Math.random() * responses.default.length)];
+        }
+
+        // Send message function
+        function sendUserMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                // Add user message to chat
+                addMessage(message, 'user');
+                userInput.value = '';
+
+                // Get and add bot response
+                const response = getBotResponse(message);
+                setTimeout(() => addMessage(response, 'bot'), 500);
+            }
+        }
+
+        // Event listeners
+        chatbotToggle.addEventListener('click', toggleChatbot);
+        closeChat.addEventListener('click', toggleChatbot);
+        sendMessage.addEventListener('click', sendUserMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        });
+    </script>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>GT Restaurant Assistant</h3>
+            <button class="close-chat">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-content">
+                    Hello! I'm your GT Restaurant assistant. How can I help you today?
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button class="send-message">Send</button>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <button class="chatbot-toggle">
+        <span class="chat-icon">💬</span>
+        <span class="chat-label">Chat with us</span>
+    </button>
+</body>
+</html> 

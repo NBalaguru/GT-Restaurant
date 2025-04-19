@@ -1,0 +1,121 @@
+<!-- Chatbot Container -->
+<div class="chatbot-container">
+    <div class="chatbot-header">
+        <h3>GT Restaurant Assistant</h3>
+        <button class="close-chat">×</button>
+    </div>
+    <div class="chatbot-messages" id="chatMessages">
+        <div class="message bot">
+            <div class="message-content">
+                Hello! I'm your GT Restaurant assistant. How can I help you today?
+            </div>
+        </div>
+    </div>
+    <div class="chatbot-input">
+        <input type="text" id="userInput" placeholder="Type your message...">
+        <button class="send-message">Send</button>
+    </div>
+</div>
+
+<!-- Chatbot Toggle Button -->
+<button class="chatbot-toggle">
+    <span class="chat-icon">💬</span>
+    <span class="chat-label">Chat with us</span>
+</button>
+
+<script>
+    // Chatbot functionality
+    const chatbotContainer = document.querySelector('.chatbot-container');
+    const chatbotToggle = document.querySelector('.chatbot-toggle');
+    const closeChat = document.querySelector('.close-chat');
+    const chatMessages = document.getElementById('chatMessages');
+    const userInput = document.getElementById('userInput');
+    const sendMessage = document.querySelector('.send-message');
+
+    // Chatbot responses
+    const responses = {
+        greeting: ["Hello!", "Hi there!", "Welcome to GT Restaurant!"],
+        menu: ["You can view our menu at menu.html. We offer starters, main course, desserts, and beverages.", 
+               "Check out our menu page for all available dishes and prices."],
+        reservation: ["You can make a reservation through our reservation page or I can help you book a table.",
+                     "To book a table, visit our reservation page or I can guide you through the process."],
+        hours: ["We're open Monday-Friday: 10AM-10PM and Saturday-Sunday: 12PM-11PM.",
+                "Our opening hours are: Weekdays 10AM-10PM, Weekends 12PM-11PM."],
+        location: ["We're located at 123 Food Street, Chennai, India.",
+                  "You can find us at 123 Food Street, Chennai, India."],
+        contact: ["You can reach us at +91 98765 43210 or email us at info@gtrestaurant.com",
+                 "Contact us: Phone: +91 98765 43210, Email: info@gtrestaurant.com"],
+        default: ["I'm not sure about that. Could you please rephrase your question?",
+                 "I don't understand. Could you try asking in a different way?"]
+    };
+
+    // Keywords for responses
+    const keywords = {
+        greeting: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening'],
+        menu: ['menu', 'food', 'dishes', 'prices', 'what do you serve'],
+        reservation: ['book', 'reserve', 'reservation', 'table', 'booking'],
+        hours: ['hours', 'open', 'closing', 'when are you open'],
+        location: ['where', 'location', 'address', 'directions'],
+        contact: ['contact', 'phone', 'email', 'reach', 'call']
+    };
+
+    // Toggle chatbot
+    chatbotToggle.addEventListener('click', () => {
+        chatbotContainer.classList.add('active');
+    });
+
+    closeChat.addEventListener('click', () => {
+        chatbotContainer.classList.remove('active');
+    });
+
+    // Send message function
+    function sendUserMessage() {
+        const message = userInput.value.trim();
+        if (message) {
+            // Add user message to chat
+            addMessage(message, 'user');
+            userInput.value = '';
+
+            // Get and add bot response
+            const response = getBotResponse(message);
+            setTimeout(() => addMessage(response, 'bot'), 500);
+        }
+    }
+
+    // Add message to chat
+    function addMessage(message, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}`;
+        messageDiv.innerHTML = `
+            <div class="message-content">
+                ${message}
+            </div>
+        `;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Get bot response based on user message
+    function getBotResponse(message) {
+        message = message.toLowerCase();
+        
+        // Check for keywords
+        for (const [category, words] of Object.entries(keywords)) {
+            if (words.some(word => message.includes(word))) {
+                const responsesList = responses[category];
+                return responsesList[Math.floor(Math.random() * responsesList.length)];
+            }
+        }
+
+        // Default response if no keywords found
+        return responses.default[Math.floor(Math.random() * responses.default.length)];
+    }
+
+    // Event listeners
+    sendMessage.addEventListener('click', sendUserMessage);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendUserMessage();
+        }
+    });
+</script> 

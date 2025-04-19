@@ -1,0 +1,330 @@
+/* Import base styles from pro.css */
+@import 'pro.css';
+
+/* Reservation Page Specific Styles */
+.reservation-page {
+    padding-top: 70px;
+}
+
+.reservation-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/backgroundfoods/food2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 1rem;
+}
+
+.reservation-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.reservation-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+/* Reservation Content */
+.reservation-content {
+    padding: 4rem 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+/* Reservation Form Styles */
+.reservation-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reservation-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Table Selection Styles */
+.table-selection {
+    margin: 2rem 0;
+}
+
+.tables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.table {
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.table:hover {
+    border-color: #fc4444;
+    transform: translateY(-2px);
+}
+
+.table.selected {
+    border-color: #fc4444;
+    background-color: rgba(252, 68, 68, 0.1);
+}
+
+.table.unavailable {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #ccc;
+}
+
+.table.unavailable:hover {
+    transform: none;
+    border-color: #ccc;
+}
+
+/* Submit Button */
+.submit-btn {
+    padding: 1rem 2rem;
+    background: #fc4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background: #e03e3e;
+}
+
+/* Receipt Modal Styles */
+.receipt-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.receipt-content {
+    background: white;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.receipt-header {
+    padding: 1rem;
+    background: #fc4444;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.receipt-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.close-receipt {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.receipt-body {
+    padding: 2rem;
+}
+
+.receipt-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.receipt-details h3 {
+    margin: 0 0 1rem 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.receipt-details p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.receipt-note {
+    margin-top: 1rem !important;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-style: italic;
+    color: #666;
+}
+
+.receipt-footer {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.print-receipt,
+.close-receipt {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.print-receipt {
+    background: #fc4444;
+    color: white;
+}
+
+.close-receipt {
+    background: #eee;
+    color: #333;
+}
+
+.print-receipt:hover {
+    background: #e03e3e;
+}
+
+.close-receipt:hover {
+    background: #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .reservation-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .reservation-hero {
+        height: 250px;
+    }
+
+    .reservation-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .reservation-hero p {
+        font-size: 1rem;
+    }
+
+    .reservation-container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .tables-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .receipt-content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tables-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .receipt-footer {
+        flex-direction: column;
+    }
+
+    .print-receipt,
+    .close-receipt {
+        width: 100%;
+    }
+}
+
+/* Cart Overlay */
+.cart-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-top: 80px; /* Added margin from top */
+}
+
+.cart-sidebar {
+    background: white;
+    width: 400px;
+    height: 100%;
+    padding: 1.5rem;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+} 
